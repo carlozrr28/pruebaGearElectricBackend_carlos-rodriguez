@@ -83,10 +83,16 @@ Email	 	 : corlos347@gmail.com
 				</div>
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Tipo de Documento</label>
-					<div class="col-sm-4">
-						<input type="text" name="Tipo_Docu" value="<?php echo $row ['Tipo_Docu']; ?>" class="form-control" placeholder="Tipo de Documentoo" required>
+					<div class="col-sm-3">
+						<select name="Tipo_Docu" class="form-control">
+							<option value="">- Selecciona Tipo de Documento -</option>
+                            <option value="1" <?php if ($row ['Tipo_Docu']==1){echo "selected";} ?>>C.C</option>
+							<option value="2" <?php if ($row ['Tipo_Docu']==2){echo "selected";} ?>>C.E</option>
+							<option value="3" <?php if ($row ['Tipo_Docu']==3){echo "selected";} ?>>PASAPORTE</option>
+						</select> 
 					</div>
-				</div>
+                   
+                </div>
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Documento</label>
 					<div class="col-sm-4">

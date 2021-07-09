@@ -51,11 +51,11 @@ include("conexion.php");
 			<form class="form-inline" method="get">
 				<div class="form-group">
 					<select name="filter" class="form-control" onchange="form.submit()">
-						<option value="0">Filtros de datos de empleados</option>
+						<option value="0">Filtros de datos del evento</option>
 						<?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
-						<option value="1" <?php if($filter == '1'){ echo 'selected'; } ?>>Fijo</option>
-						<option value="2" <?php if($filter == '2'){ echo 'selected'; } ?>>Contratado</option>
-                        <option value="3" <?php if($filter == '3'){ echo 'selected'; } ?>>Outsourcing</option>
+						<option value="1" <?php if($filter == '1'){ echo 'selected'; } ?>>Asistira</option>
+						<option value="2" <?php if($filter == '2'){ echo 'selected'; } ?>>Probablemente</option>
+                        <option value="3" <?php if($filter == '3'){ echo 'selected'; } ?>>No asitire</option>
 					</select>
 				</div>
 			</form>
@@ -74,7 +74,7 @@ include("conexion.php");
 				</tr>
 				<?php
 				if($filter){
-					$sql = mysqli_query($con, "SELECT * FROM usuarios WHERE estados='$filter' ORDER BY codigo ASC");
+					$sql = mysqli_query($con, "SELECT * FROM usuarios WHERE estado='$filter' ORDER BY codigo ASC");
 				}else{
 					$sql = mysqli_query($con, "SELECT * FROM usuarios ORDER BY codigo ASC");
 				}
@@ -93,13 +93,13 @@ include("conexion.php");
                             <td>'.$row['Correo'].'</td>
 							<td>';
 							if($row['Estado'] == '1'){
-								echo '<span class="label label-success">Fijo</span>';
+								echo '<span class="label label-success">Asistira</span>';
 							}
                             else if ($row['Estado'] == '2' ){
-								echo '<span class="label label-info">Contratado</span>';
+								echo '<span class="label label-info">Probablemente</span>';
 							}
                             else if ($row['Estado'] == '3' ){
-								echo '<span class="label label-warning">Outsourcing</span>';
+								echo '<span class="label label-warning">No asitire</span>';
 							}
 						echo '
 							</td>

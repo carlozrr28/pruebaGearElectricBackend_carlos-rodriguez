@@ -69,7 +69,15 @@ Email	 	 : corlos347@gmail.com
 				</tr>
 				<tr>
 					<th>Tipo y Numero de Documento</th>
-					<td><?php echo $row['Tipo_Docu'].', '.$row['Documento']; ?></td>
+					<td><?php
+							if ($row['Tipo_Docu']==1) {
+								echo "C.C";
+							} else if ($row['Tipo_Docu']==2){
+								echo "C.E";
+							} else if ($row['Tipo_Docu']==3){
+								echo "PASAPORTE";
+							}
+						', '.$row['Documento']; ?></td>
 				</tr>
 				<tr>
 					<th>Teléfono</th>
